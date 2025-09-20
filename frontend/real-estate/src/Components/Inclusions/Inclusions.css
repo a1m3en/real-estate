@@ -1,0 +1,236 @@
+/* Inclusions Section */
+.inclusions-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  background: #000;
+}
+
+.inclusions-container {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+}
+
+/* Left Content */
+.inclusions-content {
+  padding: 4rem;
+  z-index: 10;
+  position: relative;
+  max-width: 600px;
+  margin-left: 5%;
+}
+
+.inclusions-title {
+  font-size: 4rem;
+  font-weight: 300;
+  line-height: 1.2;
+  color: white;
+  margin-bottom: 2rem;
+  letter-spacing: -1px;
+}
+
+.inclusions-title .italic {
+  font-style: italic;
+  font-weight: 400;
+}
+
+.inclusions-description {
+  font-size: 1.2rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 3rem;
+  font-weight: 300;
+  max-width: 480px;
+}
+
+.inclusions-button {
+  background: white;
+  color: #2c3e50;
+  border: none;
+  padding: 1rem 2.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.inclusions-button:hover {
+  background: #f8f9fa;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(255, 255, 255, 0.2);
+}
+
+/* Kitchen Background */
+.kitchen-background {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 70%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 60px 0 0 60px;
+}
+
+.kitchen-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center left;
+}
+
+.kitchen-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg, 
+    rgba(0, 0, 0, 0.7) 0%, 
+    rgba(0, 0, 0, 0.3) 50%, 
+    rgba(0, 0, 0, 0.1) 100%
+  );
+}
+
+/* Content positioning over background */
+.inclusions-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    90deg, 
+    rgba(0, 0, 0, 0.9) 0%, 
+    rgba(0, 0, 0, 0.7) 70%, 
+    transparent 100%
+  );
+  z-index: 5;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .inclusions-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .inclusions-content {
+    margin-left: 0;
+    padding: 3rem 2rem;
+    max-width: 100%;
+  }
+
+  .kitchen-background {
+    position: relative;
+    width: 100%;
+    height: 60vh;
+    border-radius: 30px 30px 0 0;
+    order: -1;
+  }
+
+  .inclusions-container::before {
+    width: 100%;
+    background: linear-gradient(
+      180deg, 
+      transparent 0%, 
+      rgba(0, 0, 0, 0.7) 60%, 
+      rgba(0, 0, 0, 0.9) 100%
+    );
+  }
+
+  .inclusions-title {
+    font-size: 3.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .inclusions-section {
+    min-height: auto;
+  }
+
+  .inclusions-container {
+    height: auto;
+    min-height: 100vh;
+  }
+
+  .inclusions-content {
+    padding: 2rem 1rem;
+  }
+
+  .inclusions-title {
+    font-size: 3rem;
+  }
+
+  .inclusions-description {
+    font-size: 1.1rem;
+    max-width: 100%;
+  }
+
+  .kitchen-background {
+    height: 50vh;
+    border-radius: 20px 20px 0 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .inclusions-title {
+    font-size: 2.5rem;
+  }
+
+  .inclusions-description {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .inclusions-button {
+    padding: 0.8rem 2rem;
+    font-size: 0.9rem;
+  }
+
+  .kitchen-background {
+    height: 40vh;
+  }
+
+  .inclusions-content {
+    padding: 1.5rem 1rem;
+  }
+}
+
+/* Animation Effects */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.inclusions-content > * {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.inclusions-title {
+  animation-delay: 0.2s;
+}
+
+.inclusions-description {
+  animation-delay: 0.4s;
+}
+
+.inclusions-button {
+  animation-delay: 0.6s;
+}
